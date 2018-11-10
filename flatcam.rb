@@ -28,8 +28,8 @@ class Flatcam < Formula
   end
 
   resource "matplotlib" do
-    url "https://files.pythonhosted.org/packages/6d/bd/3e8cec37bcf71cfd81fe798cf733c046b1ceb123e7dddf6d3435cf03b506/matplotlib-2.1.2.tar.gz"
-    sha256 "725a3f12739d133adfa381e1b33bd70c6f64db453bfc536e148824816e568894"
+    url "https://files.pythonhosted.org/packages/62/81/e394906a8a15c46b56110c558c222d4d9b3735f0595e254918eca47f98cf/matplotlib-3.0.1.tar.gz"
+    sha256 "70f8782c50ac2c7617aad0fa5ba59fc49f690a851d6afc0178813c49767644dd"
   end
 
   resource "numpy" do
