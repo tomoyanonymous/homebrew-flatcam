@@ -7,8 +7,8 @@ class Flatcam < Formula
   url "https://bitbucket.org/jpcgt/flatcam.git"
   depends_on "python" => "with-tcl-tk"
   depends_on "cartr/qt4/qt@4"
-  depends_on "cartr/qt4/pyqt@4"
-  depends_on "cartr/qt4/pyside@1.2"
+  depends_on "cartr/qt4/pyqt@4" => "with-python"
+  depends_on "cartr/qt4/pyside@1.2" => "with-python"
   depends_on "geos"
   depends_on "spatialindex"
   #for matplotlib
