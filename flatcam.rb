@@ -86,6 +86,11 @@ class Flatcam < Formula
     url "https://files.pythonhosted.org/packages/5a/7f/7a601000fc400024f76e660569b0b97f98787279daff079f0dbfa89293ba/svg.path-3.0.tar.gz"
     sha256 "7b568f90f67fd25413c8da9f8bc9f9f8ab089425c20fa03330e97e77d13880ee"
   end
+  
+  resource "kiwisolver" do
+    url "https://files.pythonhosted.org/packages/31/60/494fcce70d60a598c32ee00e71542e52e27c978e5f8219fae0d4ac6e2864/kiwisolver-1.0.1.tar.gz"
+    sha256 "ce3be5d520b4d2c3e5eeb4cd2ef62b9b9ab8ac6b6fedbaa0e39cdb6f50644278"
+  
   def install
     virtualenv_install_with_resources
   end
