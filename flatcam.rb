@@ -6,9 +6,9 @@ class Flatcam < Formula
   homepage "http://flatcam.org/"
   url "https://bitbucket.org/jpcgt/flatcam.git"
   depends_on "python" => "with-tcl-tk"
-  depends_on "cartr/qt4/qt"
-  depends_on "cartr/qt4/pyqt@4"
-  depends_on "cartr/qt4/pyside"
+  depends_on "cartr/qt4/qt@4"
+  depends_on "cartr/qt4/pyqt@4" => "with-python"
+  depends_on "cartr/qt4/pyside@1.2" => "with-python"
   depends_on "geos"
   depends_on "spatialindex"
   #for matplotlib
@@ -17,10 +17,10 @@ class Flatcam < Formula
   #for scipy(fortran compiler)
   depends_on "gcc"
   # pip tools "numpy","matplotlib" ,"rtree", "scipy", "shapely","simplejson" ,"svg.path"
-  resource "backports.functools_lru_cache" do
-    url "https://files.pythonhosted.org/packages/57/d4/156eb5fbb08d2e85ab0a632e2bebdad355798dece07d4752f66a8d02d1ea/backports.functools_lru_cache-1.5.tar.gz"
-    sha256 "9d98697f088eb1b0fa451391f91afb5e3ebde16bbdb272819fd091151fda4f1a"
-  end
+  #resource "backports.functools_lru_cache" do
+  #  url "https://files.pythonhosted.org/packages/57/d4/156eb5fbb08d2e85ab0a632e2bebdad355798dece07d4752f66a8d02d1ea/backports.functools_lru_cache-1.5.tar.gz"
+  #  sha256 "9d98697f088eb1b0fa451391f91afb5e3ebde16bbdb272819fd091151fda4f1a"
+  #end
 
   resource "Cycler" do
     url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
@@ -28,28 +28,28 @@ class Flatcam < Formula
   end
 
   resource "matplotlib" do
-    url "https://files.pythonhosted.org/packages/6d/bd/3e8cec37bcf71cfd81fe798cf733c046b1ceb123e7dddf6d3435cf03b506/matplotlib-2.1.2.tar.gz"
-    sha256 "725a3f12739d133adfa381e1b33bd70c6f64db453bfc536e148824816e568894"
+    url "https://files.pythonhosted.org/packages/62/81/e394906a8a15c46b56110c558c222d4d9b3735f0595e254918eca47f98cf/matplotlib-3.0.1.tar.gz"
+    sha256 "70f8782c50ac2c7617aad0fa5ba59fc49f690a851d6afc0178813c49767644dd"
   end
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/ee/66/7c2690141c520db08b6a6f852fa768f421b0b50683b7bbcd88ef51f33170/numpy-1.14.0.zip"
-    sha256 "3de643935b212307b420248018323a44ec51987a336d1d747c1322afc3c099fb"
+    url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
+    sha256 "3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
-    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
+    url "https://files.pythonhosted.org/packages/d0/09/3e6a5eeb6e04467b737d55f8bba15247ac0876f98fae659e58cd744430c6/pyparsing-2.3.0.tar.gz"
+    sha256 "f353aab21fd474459d97b709e527b5571314ee5f067441dc9f88e33eecd96592"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/0e/01/68747933e8d12263d41ce08119620d9a7e5eb72c876a3442257f74490da0/python-dateutil-2.7.5.tar.gz"
+    sha256 "88f9287c0174266bb0d8cedd395cfba9c58e87e5ad86b2ce58859bc11be3cf02"
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/60/88/d3152c234da4b2a1f7a989f89609ea488225eaea015bc16fbde2b3fdfefa/pytz-2017.3.zip"
-    sha256 "fae4cffc040921b8a2d60c6cf0b5d662c1190fe54d718271db4eb17d44a185b7"
+    url "https://files.pythonhosted.org/packages/cd/71/ae99fc3df1b1c5267d37ef2c51b7d79c44ba8a5e37b48e3ca93b4d74d98b/pytz-2018.7.tar.gz"
+    sha256 "31cb35c89bd7d333cd32c5f278fca91b523b0834369e757f4c5641ea252236ca"
   end
 
   resource "Rtree" do
@@ -58,18 +58,18 @@ class Flatcam < Formula
   end
 
   resource "scipy" do
-    url "https://files.pythonhosted.org/packages/d0/73/76fc6ea21818eed0de8dd38e1e9586725578864169a2b31acdeffb9131c8/scipy-1.0.0.tar.gz"
-    sha256 "87ea1f11a0e9ec08c264dc64551d501fa307289460705f6fccd84cbfc7926d10"
+    url "https://files.pythonhosted.org/packages/07/76/7e844757b9f3bf5ab9f951ccd3e4a8eed91ab8720b0aac8c2adcc2fdae9f/scipy-1.1.0.tar.gz"
+    sha256 "878352408424dffaa695ffedf2f9f92844e116686923ed9aa8626fc30d32cfd1"
   end
 
   resource "Shapely" do
-    url "https://files.pythonhosted.org/packages/7d/3c/0f09841db07aabf9cc387662be646f181d07ed196e6f60ce8be5f4a8f0bd/Shapely-1.6.4.post1.tar.gz"
-    sha256 "30df7572d311514802df8dc0e229d1660bc4cbdcf027a8281e79c5fc2fcf02f2"
+    url "https://files.pythonhosted.org/packages/a2/fb/7a7af9ef7a35d16fa23b127abee272cfc483ca89029b73e92e93cdf36e6b/Shapely-1.6.4.post2.tar.gz"
+    sha256 "c4b87bb61fc3de59fc1f85e71a79b0c709dc68364d9584473697aad4aa13240f"
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/0d/3f/3a16847fe5c010110a8f54dd8fe7b091b4e22922def374fe1cce9c1cb7e9/simplejson-3.13.2.tar.gz"
-    sha256 "4c4ecf20e054716cc1e5a81cadc44d3f4027108d8dd0861d8b1e3bd7a32d4f0a"
+    url "https://files.pythonhosted.org/packages/e3/24/c35fb1c1c315fc0fffe61ea00d3f88e85469004713dab488dee4f35b0aff/simplejson-3.16.0.tar.gz"
+    sha256 "b1f329139ba647a9548aa05fb95d046b4a677643070dc2afc05fa2e975d09ca5"
   end
 
   resource "six" do
@@ -78,14 +78,20 @@ class Flatcam < Formula
   end
 
   resource "subprocess32" do
-    url "https://files.pythonhosted.org/packages/b8/2f/49e53b0d0e94611a2dc624a1ad24d41b6d94d0f1b0a078443407ea2214c2/subprocess32-3.2.7.tar.gz"
-    sha256 "1e450a4a4c53bf197ad6402c564b9f7a53539385918ef8f12bdf430a61036590"
+    url "https://files.pythonhosted.org/packages/be/2b/beeba583e9877e64db10b52a96915afc0feabf7144dcbf2a0d0ea68bf73d/subprocess32-3.5.3.tar.gz"
+    sha256 "6bc82992316eef3ccff319b5033809801c0c3372709c5f6985299c88ac7225c3"
   end
 
   resource "svg.path" do
-    url "https://files.pythonhosted.org/packages/1d/6c/cf484a95b895a7acd3989082501c67c8f43b6f91181f2a0b7aa634d1df6f/svg.path-2.2.tar.gz"
-    sha256 "bc7b75606e76f910bf0045d09a5f8415aaafff3cedd0a3ce9f0d474fe2007722"
+    url "https://files.pythonhosted.org/packages/5a/7f/7a601000fc400024f76e660569b0b97f98787279daff079f0dbfa89293ba/svg.path-3.0.tar.gz"
+    sha256 "7b568f90f67fd25413c8da9f8bc9f9f8ab089425c20fa03330e97e77d13880ee"
   end
+  
+  resource "kiwisolver" do
+    url "https://files.pythonhosted.org/packages/31/60/494fcce70d60a598c32ee00e71542e52e27c978e5f8219fae0d4ac6e2864/kiwisolver-1.0.1.tar.gz"
+    sha256 "ce3be5d520b4d2c3e5eeb4cd2ef62b9b9ab8ac6b6fedbaa0e39cdb6f50644278"
+  end
+  
   def install
     virtualenv_install_with_resources
   end
