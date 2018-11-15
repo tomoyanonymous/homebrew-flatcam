@@ -3,7 +3,7 @@ class Flatcam < Formula
   version "8.5.0"
   desc "FlatCAM: 2D Computer-Aided PCB Manufacturing"
   homepage "http://flatcam.org/"
-  url "https://bitbucket.org/jpcgt/flatcam.git"
+  url "https://bitbucket.org/jpcgt/flatcam.git" :revision => "46454c293a9b390c931b52eb6217ca47e13b0231"
   depends_on "python" => "with-tcl-tk"
   depends_on "cartr/qt4/qt@4"
   depends_on "cartr/qt4/pyqt@4" => "with-python"
