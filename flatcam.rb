@@ -77,13 +77,14 @@ class Flatcam < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python"].libexec/"bin"
-    # https://github.com/Homebrew/homebrew-core/issues/7197
-    ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
     venv = virtualenv_create(libexec,"python3")
+    Pathname.glob(libexec/"lib/python*/site-packages").each do |sitepackage_path|
+      sharepath = sitepackage_path.relative_path_from(libexec)/"share"
+      inreplace "setup.py","py_modules=[",'py_modules=["ToolDblSided", "ToolMeasurement", "ToolTransform",'
+      inreplace "setup.py", "share/flatcam", sharepath
+    end
     venv.pip_install resources
     venv.pip_install_and_link buildpath
-    bin.install Dir["*.py","tclCommands","descartes","share"]
   end
   test do
 
