@@ -1,20 +1,18 @@
 class Flatcam < Formula
   include Language::Python::Virtualenv
-  version "8.5.0"
   desc "FlatCAM: 2D Computer-Aided PCB Manufacturing"
   homepage "http://flatcam.org/"
-  url "https://bitbucket.org/jpcgt/flatcam.git" :revision => "46454c293a9b390c931b52eb6217ca47e13b0231"
-  depends_on "python" => "with-tcl-tk"
-  depends_on "cartr/qt4/qt@4"
+  url "https://bitbucket.org/jpcgt/flatcam.git", :revision => "46454c293a9b390c931b52eb6217ca47e13b0231"
+  version "8.5.0"
   depends_on "cartr/qt4/pyqt@4" => "with-python"
   depends_on "cartr/qt4/pyside@1.2" => "with-python"
-  depends_on "geos"
-  depends_on "spatialindex"
-  #for matplotlib
-  depends_on "pkg-config"
+  depends_on "cartr/qt4/qt@4"
   depends_on "freetype"
-  #for scipy(fortran compiler)
   depends_on "gcc"
+  depends_on "geos"
+  depends_on "pkg-config"
+  depends_on "python" => "with-tcl-tk"
+  depends_on "spatialindex"
   # pip tools "numpy","matplotlib" ,"rtree", "scipy", "shapely","simplejson" ,"svg.path"
   resource "Cycler" do
     url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
