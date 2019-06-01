@@ -14,12 +14,12 @@ brew install flatcam
 
 After the installation, simply you can run the app from a command `flatcam`
 
-## Current Problem(11/15/2018)
+## Current Problem(06/01/2019)
 
-In some environment, builds of scipy and matplotlib fail, maybe because invalid c++ headers are loaded.
+In some environment, installation of PySide 1.2 will fail.
 As a temporary solution, you can install with
 `brew install --debug flatcam`
-and when the error occurs, it will ask you to choose an action and choose 2 to ignore it.
+and when the error occurs, it will ask you to choose an action and choose 2 to ignore it(There are no effects ).
 
 ```sh
 1. raise
@@ -30,7 +30,6 @@ and when the error occurs, it will ask you to choose an action and choose 2 to i
 Choose an action: 2
 ```
 
-After that, running `/usr/local/Cellar/flatcam/8.5.0/libexec/bin/pip install numpy matplotlib` installs binaries without building.
 
 It's also helpful to report your environment regardless the error happened or successfully built.
 
