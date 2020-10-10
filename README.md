@@ -1,6 +1,6 @@
 # Homebrew-formula Flatcam
 
-This is the tap repository for homebrew [FlatCAM](http://flatcam.org/).
+This is an unofficial tap repository for homebrew [FlatCAM](http://flatcam.org/).
 
 ## Installation
 
@@ -9,38 +9,31 @@ This is the tap repository for homebrew [FlatCAM](http://flatcam.org/).
 brew tap tomoyanonymous/flatcam
 
 brew install flatcam
+# or
+brew install flatcam-beta
 
 ```
 
-After the installation, simply you can run the app from a command `flatcam`
+After the installation, simply you can run the app from a command `flatcam`.
 
-## Current Problem(06/01/2019)
+## 2 versions of flatcam
 
-In some environment, installation of PySide 1.2 will fail.
-As a temporary solution, you can install with
-`brew install --debug flatcam`
-and when the error occurs, it will ask you to choose an action and choose 2 to ignore it(There are no effects ).
+You can install 2 different versions of flatcam.
 
-```sh
-1. raise
-2. ignore
-3. backtrace
-4. irb
-5. shell
-Choose an action: 2
-```
-
-
-It's also helpful to report your environment regardless the error happened or successfully built.
-
-## Caution
-
-This version is 8.5.0, on master branch of an [official tree](https://bitbucket.org/jpcgt/flatcam).
-flatcam on pip is different from this, unofficial branch that uses pyqt5.
-
-It depends on Qt4 from `cartr/qt4`, not homebrew-core taps.
-
+One is v8.5.0, on master branch of an [official tree](https://bitbucket.org/jpcgt/flatcam) which is originally developed by Juan Pablo Caram and no longer maintained.
+This version depends on Qt4 because it uses pyqt4. However, old Qt is not provided through from homebrew-core. Thus the formula uses `cartr/qt4`.
 It also depends on gcc to install a fortran compiler required from scipy. An installation of gcc takes over an hour to build.
+
+Another is 8.9.x, `flatcam-beta` formula, which is on Beta branch on bitbucket actively maintained by Marius Stanciu.
+
+This version uses PyQt5 and other updated libraries.
+Note that the formula for beta version does some unrecommended manner in an installation.
+
+**Uses binary installation in pip install.** Homebrew usually recommends to build a binary from source including python packages. However, `ortools`, one of dependencies does not provide a way to install it other than using wheel (built package for python). Thus, in the formula uses normal `pip install -r requirements.txt`. Also, `requirements.txt` seems to be missing `descartes` package so the formula will additinally install it.
+
+**Symlinks for main file** In v8.5.0, the main executable file was `flatcam` but in Beta branch, it's `FlatCAM.py`. To use it from CLI directly, the formula prepends shebang `#!/usr/local/Cellar/flatcam-beta/8.9.9/libexec/python` and create symlink to the file in `/usr/local/Cellar/flatcam-beta/8.9.9/bin/flatcam`.
+
+Also, note that flatcam package on pip is yet another unofficial version, which says the version is 0.8.5 but it uses pyqt5.
 
 ## Author
 
