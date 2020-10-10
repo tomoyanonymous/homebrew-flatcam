@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: master
+  pull_request:
+    types:
+      - assigned
+      - labeled
+      - opened
+      - edited
+      - reopened
+      - synchronize
+jobs:
+  build-macos:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - name: Checkout tap
+        uses: actions/checkout@v2
+      - name: Update Homebrew
+        run: |
+          rm -rf $(brew --repo homebrew/cask)
+          rm -rf $(brew --repo homebrew/cask-versions)
+          rm -rf $(brew --cellar)/*
+          sudo rm -rf /usr/local/include/* /usr/local/lib/*
+          brew update-reset
+          brew cleanup
+      - name: Set up tap
+        run: |
+          brew tap tomoyanonymous/flatcam
+      - name: Run brew install
+        run: brew install flatcam-beta -v 
