@@ -13,6 +13,7 @@ class FlatcamBeta < Formula
   depends_on "spatialindex"
 
   def install
+    virtualenv_create(libexec,"python3")
     inreplace "FlatCAM.py", "import sys", "#!#{libexec}/bin/python3\nimport sys"
     system libexec/"bin/pip", "install", "descartes" # missing dependency
     system libexec/"bin/pip", "install", "-r", "requirements.txt"
