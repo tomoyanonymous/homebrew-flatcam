@@ -3,7 +3,7 @@ class FlatcamBeta < Formula
   desc "FlatCAM: 2D Computer-Aided PCB Manufacturing(Beta)"
   homepage "http://flatcam.org/"
   url "https://bitbucket.org/jpcgt/flatcam.git", branch: "Beta", revision: "a58cd5d9473554b9a620eb5eb44fb766f26ef693"
-  version "8.5.0"
+  version "8.9.9"
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "gdal"
