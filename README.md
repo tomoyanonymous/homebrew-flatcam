@@ -16,6 +16,8 @@ brew install flatcam-beta
 
 After the installation, simply you can run the app from a command `flatcam`.
 
+Note: If you failed to launch after upgrade, remove `~/.FlatCAM` (temporary config directory).
+
 ## 2 versions of flatcam
 
 You can install 2 different versions of flatcam.
