@@ -28,6 +28,19 @@ jobs:
           brew cleanup
       - name: Set up tap
         run: |
-          brew tap tomoyanonymous/flatcam
-      - name: Run brew install
-        run: brew install flatcam-beta -v 
+          REPO=$(brew --repo ${{github.repository}})
+          mkdir -p "$REPO"
+          rm -rf "$REPO"
+          ln -s $GITHUB_WORKSPACE "$REPO"
+      - name: Run brew test-bot --only-setup
+        run: brew test-bot --only-setup --tap=${{github.repository}} -v 
+      - name: Run brew test-bot --only-formulae
+        run: |
+          mkdir ~/bottles
+          cd ~/bottles
+          brew test-bot --only-formulae --tap=${{github.repository}} -v
+      - name: Output brew test-bot --only-formulae failures
+        if: always()
+        run: |
+            cat ~/bottles/steps_output.txt
+            rm ~/bottles/steps_output.txt
