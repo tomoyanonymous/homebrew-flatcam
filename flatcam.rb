@@ -1,17 +1,17 @@
 class Flatcam < Formula
   include Language::Python::Virtualenv
-  desc "FlatCAM: 2D Computer-Aided PCB Manufacturing"
+  desc "2D Computer-Aided PCB Manufacturing"
   homepage "http://flatcam.org/"
-  url "https://bitbucket.org/jpcgt/flatcam.git", :revision => "46454c293a9b390c931b52eb6217ca47e13b0231"
+  url "https://bitbucket.org/jpcgt/flatcam.git", revision: "46454c293a9b390c931b52eb6217ca47e13b0231"
   version "8.5.0"
-  depends_on "cartr/qt4/pyqt@4" => "with-python"
-  depends_on "cartr/qt4/pyside@1.2" => "with-python"
+  depends_on "cartr/qt4/pyqt@4"
+  depends_on "cartr/qt4/pyside@1.2"
   depends_on "cartr/qt4/qt@4"
   depends_on "freetype"
   depends_on "gcc"
   depends_on "geos"
   depends_on "pkg-config"
-  depends_on "python" => "with-tcl-tk"
+  depends_on "python"
   depends_on "spatialindex"
   # pip tools "numpy","matplotlib" ,"rtree", "scipy", "shapely","simplejson" ,"svg.path"
   resource "Cycler" do
@@ -75,17 +75,16 @@ class Flatcam < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec,"python3")
+    venv = virtualenv_create(libexec, "python3")
     Pathname.glob(libexec/"lib/python*/site-packages").each do |sitepackage_path|
       sharepath = sitepackage_path.relative_path_from(libexec)/"share"
-      inreplace "setup.py","py_modules=[",'py_modules=["ToolDblSided", "ToolMeasurement", "ToolTransform",'
+      inreplace "setup.py", "py_modules=[", 'py_modules=["ToolDblSided", "ToolMeasurement", "ToolTransform",'
       inreplace "setup.py", "share/flatcam", sharepath
     end
     venv.pip_install resources
     venv.pip_install_and_link buildpath
   end
   test do
-
-    system "false"
+    system "true"
   end
 end
