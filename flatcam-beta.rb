@@ -10,6 +10,7 @@ class FlatcamBeta < Formula
   depends_on "geos"
   depends_on "pyqt"
   depends_on "python"
+  depends_on "python-tk"
   depends_on "spatialindex"
 
   def install
