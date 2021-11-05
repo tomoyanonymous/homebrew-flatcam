@@ -4,6 +4,7 @@ class FlatcamBeta < Formula
   homepage "http://flatcam.org/"
   url "https://bitbucket.org/jpcgt/flatcam.git", branch: "Beta", revision: "f04d8be50fb57a489f7f7aa714ecf78d0dd266a6"
   version "8.9.94"
+  head "https://bitbucket.org/jpcgt/flatcam.git", :branch => "Beta"
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "gdal"
