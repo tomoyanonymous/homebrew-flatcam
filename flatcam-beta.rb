@@ -4,7 +4,6 @@ class FlatcamBeta < Formula
   homepage "http://flatcam.org/"
   url "https://bitbucket.org/jpcgt/flatcam.git", branch: "Beta", revision: "f04d8be50fb57a489f7f7aa714ecf78d0dd266a6"
   version "8.9.94"
-  head "https://bitbucket.org/jpcgt/flatcam.git", :branch => "Beta"
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "gdal"
@@ -17,7 +16,7 @@ class FlatcamBeta < Formula
   def install
     virtualenv_create(libexec, "python3")
     inreplace "FlatCAM.py", "import sys", "#!#{libexec}/bin/python3\nimport sys"
-    inreplace "requirements.txt", "vispy", "vispy==0.7" # patch for fixing vispy version
+    inreplace "requirements.txt", "vispy", "vispy==0.7.1" # patch for fixing vispy version
     system libexec/"bin/pip", "install", "descartes" # missing dependency
     system libexec/"bin/pip", "install", "-r", "requirements.txt"
     libexec.install Dir["*.py", "appCommon", "appEditors", "appGUI", "appObjects", "appParsers", "appTools", "assets", "config",\
