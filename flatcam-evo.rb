@@ -15,7 +15,7 @@ class FlatcamEvo < Formula
     depends_on "spatialindex"
   
     def install
-      virtualenv_create(libexec, "python3")
+      virtualenv_create(libexec, "python3", without_pip: false)
       inreplace "flatcam.py", "import sys", "#!#{libexec}/bin/python3\nimport sys"
       system libexec/"bin/pip", "install", "-r", "requirements.txt"
       libexec.install Dir["*.py", "appCommon", "appEditors", "appGUI", \
