@@ -76,7 +76,7 @@ class Flatcam < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    virtualenv_create(libexec, "python3", without_pip: false)
     Pathname.glob(libexec/"lib/python*/site-packages").each do |sitepackage_path|
       sharepath = sitepackage_path.relative_path_from(libexec)/"share"
       inreplace "setup.py", "py_modules=[", 'py_modules=["ToolDblSided", "ToolMeasurement", "ToolTransform",'
