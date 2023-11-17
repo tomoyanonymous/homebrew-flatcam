@@ -4,13 +4,17 @@ class FlatcamBeta < Formula
   homepage "http://flatcam.org/"
   url "https://bitbucket.org/jpcgt/flatcam.git", branch: "Beta", revision: "f04d8be50fb57a489f7f7aa714ecf78d0dd266a6"
   version "8.9.94"
+
+  bottle do
+    root_url "https://github.com/tomoyanonymous/homebrew-flatcam/releases/download/flatcam-beta-8.9.94"
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura: "094967ad3293ec8f6817613b3fb717911287c3fae4f14de63dec5f708a1d349c"
+  end
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "gdal"
   depends_on "geos"
   depends_on "pyqt@5"
-  depends_on "python"
-  depends_on "python-tk"
   depends_on "spatialindex"
 
   def install
