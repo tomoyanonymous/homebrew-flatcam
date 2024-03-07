@@ -9,12 +9,12 @@ class FlatcamBeta < Formula
   depends_on "gdal"
   depends_on "geos"
   depends_on "pyqt@5"
-  depends_on "python"
+  depends_on "python3.11"
   depends_on "python-tk"
   depends_on "spatialindex"
 
   def install
-    virtualenv_create(libexec, "python3", without_pip: false)
+    virtualenv_create(libexec, "python3.11", without_pip: false)
     inreplace "FlatCAM.py", "import sys", "#!#{libexec}/bin/python3\nimport sys"
     inreplace "requirements.txt", "vispy", "vispy==0.7.1" # patch for fixing vispy version
     inreplace "requirements.txt", "shapely>=1.7.0", "shapely==1.8.5"
