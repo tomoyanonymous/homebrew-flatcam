@@ -10,7 +10,7 @@ class FlatcamEvo < Formula
     depends_on "geos"
     depends_on "pyqt"
     depends_on "python@3.11"
-    depends_on "python-tk"
+    depends_on "python-tk@3.11"
     depends_on "qpdf"
     depends_on "spatialindex"
   
