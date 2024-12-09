@@ -15,10 +15,12 @@ class FlatcamEvo < Formula
     depends_on "spatialindex"
   
     def install
-      virtualenv_create(libexec, "python3.11", without_pip: false)
+      venv = virtualenv_create(libexec, "python3.11", without_pip: false)
       inreplace "flatcam.py", "\nimport sys", "#!#{libexec}/bin/python3\nimport sys"
-      inreplace "requirements.txt", "numpy>=1.16", "numpy>=1.16, <2.0"
-      system libexec/"bin/pip", "install", "-r", "requirements.txt"
+      inreplace "requirements.txt", "numpy>=1.16", "numpy>=1.16, <2.0" # fix numpy 2.x issue(#31)
+      system libexec/"bin/pip", "install",
+                    "--no-binary", "pillow",# fix link breakage of libpng(#27)
+                    "-r", "requirements.txt"
       libexec.install Dir["*.py", "appCommon", "appEditors", "appGUI", \
         "appHandlers", "appObjects", "appParsers", "appPlugins", "assets", "config",\
         "descartes", "doc", "libs", "locale", "locale_template", \
