@@ -47,6 +47,9 @@ Because that the formula does some unrecommended manner in an installation, this
 
 **Symlinks for main file** In v8.5.0, the main executable file was `flatcam` but in Beta branch, it's `FlatCAM.py`. To use it from CLI directly, the formula prepends shebang `#!/usr/local/Cellar/flatcam-beta/8.9.94/libexec/python` and create symlink to the file in `/usr/local/Cellar/flatcam-beta/8.9.94/bin/flatcam`.
 
+## If you encountered errors
+
+See [CONTRIBUTING](CONTRIBUTIONG.md)
 
 ## Author
 
