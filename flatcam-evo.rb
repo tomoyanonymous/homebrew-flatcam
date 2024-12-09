@@ -23,7 +23,7 @@ class FlatcamEvo < Formula
         "appHandlers", "appObjects", "appParsers", "appPlugins", "assets", "config",\
         "descartes", "doc", "libs", "locale", "locale_template", \
         "preprocessors", "tclCommands", "Utils",]
-      bin.install_symlink libexec/"flatcam.py" => "flatcam-evo"
+      bin.install_symlink libexec/"flatcam.py" => "flatcam"
       system "chmod", "+x", libexec/"flatcam.py"
       system "chmod", "+x", bin/"flatcam"
     end
