@@ -2,7 +2,7 @@ class FlatcamEvo < Formula
     include Language::Python::Virtualenv
     desc "2D Computer-Aided PCB Manufacturing(Beta-evo)"
     homepage "https://bitbucket.org/marius_stanciu/flatcam_beta"
-    url "https://bitbucket.org/marius_stanciu/flatcam_beta.git", branch: "Beta_8.995", revision: "a7c909273b4fcdf7b092eadf242f214b8011f69e"
+    url "https://bitbucket.org/marius_stanciu/flatcam_beta.git", branch: "Beta_8.995", revision: "1ef01840d00eaad9dbd906832911ef63c0748625"
     version "8.9.95"
     depends_on "pkg-config" => :build
     depends_on "freetype"
