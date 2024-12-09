@@ -8,6 +8,7 @@ class FlatcamBeta < Formula
   depends_on "freetype"
   depends_on "gdal"
   depends_on "geos"
+  depends_on "libpng"
   depends_on "pyqt@5"
   depends_on "python@3.11"
   depends_on "python-tk@3.11"
