@@ -25,7 +25,7 @@ class FlatcamEvo < Formula
         "preprocessors", "tclCommands", "Utils",]
       bin.install_symlink libexec/"flatcam.py" => "flatcam-evo"
       system "chmod", "+x", libexec/"flatcam.py"
-      system "chmod", "+x", bin/"flatcam-evo"
+      system "chmod", "+x", bin/"flatcam"
     end
     test do
       system "true"
