@@ -2,7 +2,7 @@ class FlatcamBeta < Formula
   include Language::Python::Virtualenv
   desc "2D Computer-Aided PCB Manufacturing(Beta)"
   homepage "http://flatcam.org/"
-  url "https://bitbucket.org/jpcgt/flatcam.git", branch: "Beta", revision: "f04d8be50fb57a489f7f7aa714ecf78d0dd266a6"
+  url "https://bitbucket.org/jpcgt/flatcam.git", branch: "Beta", revision: "ebf5cb9e3094362c4b0774a54cf119559c02211d"
   version "8.9.94"
   depends_on "pkg-config" => :build
   depends_on "freetype"
