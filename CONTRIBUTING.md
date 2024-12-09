@@ -54,3 +54,5 @@ git push downstream master
 ...[and open the PR](https://docs.github.com/ja/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 
 If you could not build the latest version and can not ivestigate the cause, you can ask on issue. However, I can not always respond immediately. Please do help each other!
+
+Also, if you ask on issue, do not forget paste error report and your environment(Machine spec and OS version especially).

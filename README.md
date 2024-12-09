@@ -49,7 +49,7 @@ Because that the formula does some unrecommended manner in an installation, this
 
 ## If you encountered errors
 
-See [CONTRIBUTING](CONTRIBUTIONG.md)
+See [CONTRIBUTING](CONTRIBUTING.md)
 
 ## Author
 
