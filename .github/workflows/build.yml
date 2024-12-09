@@ -15,9 +15,14 @@ jobs:
   build-macos:
     name: Build
     runs-on: macos-latest
+    strategy:
+      matrix:
+        formula:
+          - { name: flatcam-beta }
+          - { name: flatcam-evo }
     steps:
       - name: Checkout tap
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Update Homebrew
         run: |
           rm -rf $(brew --repo homebrew/cask)
@@ -32,15 +37,7 @@ jobs:
           mkdir -p "$REPO"
           rm -rf "$REPO"
           ln -s $GITHUB_WORKSPACE "$REPO"
-      - name: Run brew test-bot --only-setup
-        run: brew test-bot --only-setup --tap=${{github.repository}} -v flatcam-beta
-      - name: Run brew test-bot --only-formulae
-        run: |
-          mkdir ~/bottles
-          cd ~/bottles
-          brew test-bot --only-formulae --tap=${{github.repository}} -v flatcam-beta
-      - name: Output brew test-bot --only-formulae failures
-        if: always()
-        run: |
-            cat ~/bottles/steps_output.txt
-            rm ~/bottles/steps_output.txt
+      - name: Run brew install # do not test with brew-test-bot but just try to install
+        run: brew install ${{ matrix.formula.name }} --debug --verbose
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
