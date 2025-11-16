@@ -20,6 +20,7 @@ class FlatcamBeta < Formula
     inreplace "requirements.txt", "vispy", "vispy==0.7.1" # patch for fixing vispy version
     inreplace "requirements.txt", "numpy>=1.16", "numpy>=1.16, <2.0"
     inreplace "requirements.txt", "shapely>=1.7.0", "shapely==1.8.5"
+    inreplace "requirements.txt", "gdal", "gdal < 3.12" # gdal 3.12 is not on brew (#38)
     system libexec/"bin/pip", "install", "descartes" # missing dependency
     system libexec/"bin/pip", "install", "-r", "requirements.txt"
     libexec.install Dir["*.py", "appCommon", "appEditors", "appGUI", "appObjects", "appParsers", "appTools", "assets", "config",\

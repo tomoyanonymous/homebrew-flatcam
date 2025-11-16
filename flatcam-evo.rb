@@ -18,6 +18,7 @@ class FlatcamEvo < Formula
       venv = virtualenv_create(libexec, "python3.11", without_pip: false)
       inreplace "flatcam.py", "\nimport sys", "#!#{libexec}/bin/python3\nimport sys"
       inreplace "requirements.txt", "numpy>=1.16", "numpy>=1.16, <2.0" # fix numpy 2.x issue(#31)
+      inreplace "requirements.txt", "gdal", "gdal < 3.12" # gdal 3.12 is not on brew (#38)
       system libexec/"bin/pip", "install",
                     "--no-binary", "pillow",# fix link breakage of libpng(#27)
                     "-r", "requirements.txt"
